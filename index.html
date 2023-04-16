@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Session 08 - Function</title>
+  </head>
+  <body>
+    <script>
+      function getColor(color) {
+        console.log("Color", color);
+      }
+      getColor("red");
+
+      function calculateSum(x, y, z) {
+        return x + y + z;
+      }
+      const numbers1 = calculateSum(1, 2, 3);
+
+      console.log("Kiểm tra sum", numbers1);
+
+      function calculateSum2() {
+        let sum = 0;
+        for (let i = 0; i < arguments.length; i++) {
+          sum += arguments[i];
+        }
+        return sum;
+      }
+      const numbers2 = calculateSum2(
+        1,
+        4,
+        5,
+        6,
+        63,
+        3,
+        535,
+        3,
+        535,
+        3,
+        534,
+        5345,
+        34
+      );
+      console.log(numbers2);
+
+      //   IIFE
+      (function (firstName, lastName) {
+        console.log("Full name là", firstName + " " + lastName);
+      })("Sơn", "Lê");
+
+      //   Arrow function
+      const caclulateArea = (r) => {
+        return 3.14 * r * r;
+      };
+      const caclulateArea2 = (r) => 3.14 * r * r;
+
+      console.log(caclulateArea(10));
+
+      const calculateSum3 = (x, y, ...numbers) => {
+        console.log(numbers);
+
+        const doubleNumber = numbers.map((number) => number * 2);
+
+        console.log(doubleNumber);
+      };
+      calculateSum3(1, 4, 5, 5, 78, 45, 45, 6, 467);
+
+      const cars = ["BMW", "KIA", "HUYNDAI", "VINFAST", "FORD"];
+
+      const search = cars.filter((car) => car.includes("A"));
+
+      console.log(search, 11111111);
+
+      const numbers = [1, 5, 7, 9, 9, 10, 7];
+
+      //   Tạo call back function filter
+      const conditionFilter = (number) => {
+        return number > 5;
+      };
+      function myFilter(array, callbackFn) {
+        const reult = [];
+        // console.log(2222, callbackFn(10));
+        for (let i = 0; i < array.length; i++) {
+          if (callbackFn(array[i])) {
+            reult.push(array[i]);
+          }
+        }
+        return reult;
+      }
+
+      const resultFilter = myFilter(numbers, conditionFilter);
+      console.log(resultFilter);
+
+      //   Kiểm tra một số nguyên tố
+
+      function isPrime(number) {
+        if (number < 2) {
+          return false;
+        }
+        for (let i = 2; i <= Math.sqrt(number); i++) {
+          if (number % i == 0) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      console.log(isPrime(5));
+      console.log(isPrime);
+    </script>
+  </body>
+</html>
